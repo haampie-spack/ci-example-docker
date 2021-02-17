@@ -1,0 +1,9 @@
+spack:
+  view: false
+  specs:
+  - mypkg@main +cuda ~mpi +shared build_type=Debug ^cuda@:11.0 target=x86_64
+  - mypkg@main +cuda ~mpi -shared build_type=Debug ^cuda@:11.0 target=x86_64
+  develop:
+    mypkg:
+      path: ../../..
+      spec: mypkg@main
