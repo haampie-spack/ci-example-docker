@@ -15,6 +15,4 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Build this package
-        run: |
-          echo $PWD ${GITHUB_WORKSPACE} $PATH
-          /opt/spack/bin/spack -e ${GITHUB_WORKSPACE}/tools/environments/ci/spack.yaml install -v
+        run: /opt/spack/bin/spack -e ./tools/environments/ci/ install -v
