@@ -15,4 +15,6 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Build this package
-        run: /opt/spack/bin/spack -e ./tools/environments/ci/ install -v
+        run: |
+          /opt/spack/bin/spack -e ./tools/environments/ci/ repo add ./tools/spack
+          /opt/spack/bin/spack -e ./tools/environments/ci/ install -v
