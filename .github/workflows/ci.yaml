@@ -9,6 +9,7 @@ jobs:
   docker:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
       - name: Login to DockerHub
@@ -22,7 +23,7 @@ jobs:
         with:
           push: true
           context: .
-          file: tools/environments/ci
+          file: tools/docker/build-env.Dockerfile
           tags: stabbles/pkg-example:latest
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
