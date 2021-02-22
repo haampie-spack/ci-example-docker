@@ -11,5 +11,5 @@ target_include_directories(mypkg PUBLIC
     $<INSTALL_INTERFACE:include>)
 
 target_link_libraries(mypkg PRIVATE
-    $<$<BOOL:MYPKG_USE_CUDA>:CUDA::cublas>
-    $<$<BOOL:MYPKG_USE_CUDA>:CUDA::cudart>)
+    $<TARGET_NAME_IF_EXISTS:CUDA::cublas>
+    $<TARGET_NAME_IF_EXISTS:CUDA::cudart>)
