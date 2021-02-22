@@ -9,6 +9,7 @@ on:
     - master
 jobs:
   ci:
+    runs-on: ubuntu-latest
     container:
       image: stabbles/pkg-example:latest
     steps:
