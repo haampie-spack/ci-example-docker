@@ -23,4 +23,4 @@ jobs:
           /opt/spack/bin/spack --color=always -e ./tools/environments/ci/ install -v
       - name: Run tests
         run: |
-          /opt/spack/bin/spack --color=always -e ./tools/environments/ci/ install --test=root mypkg@main ^mpich
+          /opt/spack/bin/spack --color=always -e ./tools/environments/ci/ install -v --test=root mypkg@main ^mpich
