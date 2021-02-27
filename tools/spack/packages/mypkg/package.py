@@ -3,55 +3,34 @@
 #
 # SPDX-License-Identifier: (Apache-2.0 OR MIT)
 
-# ----------------------------------------------------------------------------
-# If you submit this package back to Spack as a pull request,
-# please first remove this boilerplate and all FIXME comments.
-#
-# This is a template package file for Spack.  We've put "FIXME"
-# next to all the things you'll want to change. Once you've handled
-# them, you can save this file and test your package like this:
-#
-#     spack install mypackage
-#
-# You can edit this file again by typing:
-#
-#     spack edit mypackage
-#
-# See the Spack documentation for more information on packaging.
-# ----------------------------------------------------------------------------
-
 from spack import *
 
 
 class Mypkg(CMakePackage):
     """Example package"""
 
-    homepage = "https://github.com/haampie-spack/ci-example"
-    git      = "https://github.com/haampie-spack/ci-example.git"
-
+    homepage    = "https://github.com/haampie-spack/ci-example"
+    git         = "https://github.com/haampie-spack/ci-example.git"
     maintainers = ['haampie']
 
     version('main', branch='main')
 
-    variant('cuda', default=False, description="Enable CUDA support")
-    variant('mpi', default=False, description="Enable MPI support")
-    variant('shared', default=True, description="Build shared libraries")
-    variant('tests', default=False, description="Build with tests")
+    variant('cuda',   default=False, description="Enable CUDA support")
+    variant('mpi',    default=False, description="Enable MPI support")
+    variant('shared', default=True,  description="Build shared libraries")
+    variant('tests',  default=False, description="Build with tests")
 
     depends_on('cuda', when="+cuda")
     depends_on('mpi', when="+mpi")
 
     def cmake_args(self):
-        args = [
+        return [
             self.define_from_variant('MYPKG_USE_CUDA', 'cuda'),
             self.define_from_variant('MYPKG_USE_MPI', 'mpi'),
             self.define_from_variant('MYPKG_BUILD_SHARED', 'shared'),
             self.define('MYPKG_BUILD_TESTS', 'ON' if '+tests' in self.spec else 'OFF')
         ]
 
-        return args
-
     def check(self):
-        """Run ctest after building project."""
         with working_dir(self.build_directory):
             ctest('--output-on-failure')
