@@ -1,9 +1,9 @@
 name: Update build environment
 
 on:
-  workflow_dispatch:
+  workflow_dispatch:      # Trigger by hand from the UI
   schedule:
-    - cron: '0 1 * * *'
+    - cron: '0 1 * * *'   # Schedule it every day
 
 jobs:
   docker:
