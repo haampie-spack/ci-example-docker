@@ -28,7 +28,7 @@ class Mypkg(CMakePackage):
             self.define_from_variant('MYPKG_USE_CUDA', 'cuda'),
             self.define_from_variant('MYPKG_USE_MPI', 'mpi'),
             self.define_from_variant('MYPKG_BUILD_SHARED', 'shared'),
-            self.define('MYPKG_BUILD_TESTS', 'ON' if '+tests' in self.spec else 'OFF')
+            self.define_from_variant('MYPKG_BUILD_TESTS', 'tests')
         ]
 
     def check(self):
