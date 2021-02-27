@@ -14,9 +14,12 @@ jobs:
       image: stabbles/pkg-example:latest
     steps:
       - uses: actions/checkout@v2
-      - name: Build this package
+      - name: Setup spack
         run: |
           /opt/spack/bin/spack --color=always -e ./tools/environments/ci/ repo add ./tools/spack
+          /opt/spack/bin/spack --color=always -e ./tools/environments/ci/ concretize
+      - name: Build
+        run: |
           /opt/spack/bin/spack --color=always -e ./tools/environments/ci/ install -v
       - name: Run tests
         run: |
