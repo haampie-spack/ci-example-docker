@@ -17,7 +17,7 @@ jobs:
       - name: Make OpenMPI happy
         run: |
           # TODO: should be able to do without ...
-          apt-get update -qq && apt-get install -qq ssh
+          apt-get update -qq && apt-get install -qq --no-install-recommends ssh
       - name: Setup Spack
         run: |
           /opt/spack/bin/spack --color=always -e ./tools/environments/ci/ repo add ./tools/spack
