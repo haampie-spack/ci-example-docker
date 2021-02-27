@@ -50,3 +50,8 @@ class Mypkg(CMakePackage):
         ]
 
         return args
+
+    def check(self):
+        """Run ctest after building project."""
+        with working_dir(self.build_directory):
+            ctest('--output-on-failure')
