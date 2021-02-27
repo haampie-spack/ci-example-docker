@@ -14,10 +14,12 @@ jobs:
       image: stabbles/pkg-example:latest
     steps:
       - uses: actions/checkout@v2
-      - name: Setup spack
+      - name: Make OpenMPI happy
         run: |
-          # TODO: figure out why openmpi needs this...
-          apt-get update -qq &> /dev/null && apt-get install -qq -y ssh &> /dev/null
+          # TODO: should be able to do without ...
+          apt-get update -qq && apt-get install -qq ssh
+      - name: Setup Spack
+        run: |
           /opt/spack/bin/spack --color=always -e ./tools/environments/ci/ repo add ./tools/spack
           /opt/spack/bin/spack --color=always -e ./tools/environments/ci/ concretize
       - name: Build and test
