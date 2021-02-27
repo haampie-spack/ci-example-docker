@@ -1,3 +1,4 @@
+[![CI](https://github.com/haampie-spack/ci-example/actions/workflows/ci.yaml/badge.svg)](https://github.com/haampie-spack/ci-example/actions/workflows/ci.yaml) [![Update build environment](https://github.com/haampie-spack/ci-example/actions/workflows/build-env.yaml/badge.svg)](https://github.com/haampie-spack/ci-example/actions/workflows/build-env.yaml)
 # Build and run locally:
 
 ```sh
