@@ -36,6 +36,7 @@ class Mypkg(CMakePackage):
     variant('cuda', default=False, description="Enable CUDA support")
     variant('mpi', default=False, description="Enable MPI support")
     variant('shared', default=True, description="Build shared libraries")
+    variant('tests', default=False, description="Build with tests")
 
     depends_on('cuda', when="+cuda")
     depends_on('mpi', when="+mpi")
@@ -45,7 +46,7 @@ class Mypkg(CMakePackage):
             self.define_from_variant('MYPKG_USE_CUDA', 'cuda'),
             self.define_from_variant('MYPKG_USE_MPI', 'mpi'),
             self.define_from_variant('MYPKG_BUILD_SHARED', 'shared'),
-            self.define('MYPKG_BUILD_TESTS', 'ON' if self.run_tests else 'OFF')
+            self.define('MYPKG_BUILD_TESTS', 'ON' if '+tests' in self.spec else 'OFF')
         ]
 
         return args

@@ -8,7 +8,7 @@ spack:
     all:
       target: [x86_64]
     mypkg:
-      variants: [~cuda +mpi build_type=Debug]
+      variants: [~cuda +mpi +tests build_type=Debug]
   develop:
     mypkg:
       path: ../../..
