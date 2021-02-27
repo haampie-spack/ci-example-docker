@@ -24,6 +24,4 @@ jobs:
           /opt/spack/bin/spack --color=always -e ./tools/environments/ci/ concretize
       - name: Build and test
         run: |
-          # again, openmpi needs this.
-          export OMPI_ALLOW_RUN_AS_ROOT=1 OMPI_ALLOW_RUN_AS_ROOT_CONFIRM=1
           /opt/spack/bin/spack --color=always -e ./tools/environments/ci/ install -v --test=root mypkg@main
