@@ -2,11 +2,13 @@ spack:
   view: false
   specs:
   - matrix:
-    - [mypkg@main ~cuda +mpi +shared build_type=Debug]
+    - [mypkg@main]
     - ['^mpich@:3.4', '^openmpi@:4.1']
   packages:
     all:
       target: [x86_64]
+    mypkg:
+      variants: [~cuda +mpi build_type=Debug]
   develop:
     mypkg:
       path: ../../..

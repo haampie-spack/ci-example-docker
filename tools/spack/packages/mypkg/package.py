@@ -44,7 +44,8 @@ class Mypkg(CMakePackage):
         args = [
             self.define_from_variant('MYPKG_USE_CUDA', 'cuda'),
             self.define_from_variant('MYPKG_USE_MPI', 'mpi'),
-            self.define_from_variant('MYPKG_BUILD_SHARED', 'shared')
+            self.define_from_variant('MYPKG_BUILD_SHARED', 'shared'),
+            self.define('MYPKG_BUILD_TESTS', 'ON' if self.run_tests else 'OFF')
         ]
 
         return args

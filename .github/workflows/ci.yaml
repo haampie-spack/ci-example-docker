@@ -18,3 +18,6 @@ jobs:
         run: |
           /opt/spack/bin/spack --color=always -e ./tools/environments/ci/ repo add ./tools/spack
           /opt/spack/bin/spack --color=always -e ./tools/environments/ci/ install -v
+      - name: Run tests
+        run: |
+          /opt/spack/bin/spack --color=always -e ./tools/environments/ci/ build-env mypkg@main ^mpich -- ctest --output-on-failure

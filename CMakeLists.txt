@@ -27,6 +27,11 @@ endif ()
 add_subdirectory(src)
 add_subdirectory(apps)
 
+if (MYPKG_BUILD_TESTS)
+    include(CTest)
+    add_subdirectory(test)
+endif ()
+
 ## install
 
 include(CMakePackageConfigHelpers)

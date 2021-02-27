@@ -6,6 +6,7 @@ extern "C" {
 #endif
 
 void multiply_by_two(double * vec, int n);
+double compute_something();
 
 #ifdef __cplusplus
 }
