@@ -4,7 +4,6 @@
 ```sh
 $ git clone https://github.com/haampie-spack/ci-example.git
 $ docker run -h build-env -v ci-example:/sources -it stabbles/pkg-example
-root@build-env:/sources# apt-get update -qq && apt-get install -qq --no-install-recommends ssh # todo: figure out how to get rid of this, openmpi wants it apparently
 root@build-env:/sources# spack repo add tools/spack
 root@build-env:/sources# spack -e tools/environments/ci install --test=root --verbose mypkg@main
 ```
