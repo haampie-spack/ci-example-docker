@@ -22,5 +22,5 @@ jobs:
         with:
           push: true
           context: .
-          file: tools/docker/build-env.Dockerfile
+          file: ci/docker/build-env.Dockerfile
           tags: stabbles/pkg-example:latest

@@ -11,5 +11,5 @@ spack:
       variants: [~cuda +mpi +tests build_type=Debug]
   develop:
     mypkg:
-      path: ../../..
+      path: ../
       spec: mypkg@main

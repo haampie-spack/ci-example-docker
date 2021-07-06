@@ -16,8 +16,8 @@ jobs:
       - uses: actions/checkout@v2
       - name: Setup Spack
         run: |
-          /opt/spack/bin/spack --color=always -e ./tools/environments/ci/ repo add ./tools/spack
-          /opt/spack/bin/spack --color=always -e ./tools/environments/ci/ concretize
+          /opt/spack/bin/spack --color=always -e ./ci repo add ./ci/repo
+          /opt/spack/bin/spack --color=always -e ./ci concretize
       - name: Build and test
         run: |
-          /opt/spack/bin/spack --color=always -e ./tools/environments/ci/ install -v --test=root
+          /opt/spack/bin/spack --color=always -e ./ci install -v --test=root
